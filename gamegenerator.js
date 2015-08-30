@@ -8,6 +8,9 @@ function createCards() {
     var i = 0;
     for (i = 0; i < 6; i++) {
         var card = document.createElement("card-el");
+        card.className = "card";
+        var cardOffset = i * 20;
+        card.style.top = cardOffset + "px";
         
         var cardHeader = document.createElement("h3");
         var cardTitle = document.createTextNode("Card Name");
