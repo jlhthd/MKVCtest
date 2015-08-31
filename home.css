@@ -4,14 +4,17 @@
 }
 
 .greencard {
+    position: absolute;
     background-color: green;
 }
 
 .redcard {
+    position: absolute;
     background-color: red;
 }
 
 .purplecard {
+    position: absolute;
     background-color: purple;
 }
 

@@ -7,11 +7,13 @@ function createCards() {
     
     var i = 0;
     for (i = 0; i < 6; i++) {
+        //create housing
         var cardHouse = document.createElement("div");
         cardHouse.className = "cardhouse";
         var cardOffset = i * 16.5;
         cardHouse.style.left = cardOffset + "%";
         
+        //create card
         var card = document.createElement("card-el");
         card.className = "bluecard";
         
@@ -26,8 +28,19 @@ function createCards() {
         card.appendChild(cardHeader);
         card.appendChild(cardBody);
         
+        //add card to housing
         cardHouse.appendChild(card);
         
+        //add num cards
+        var numCardsDiv = document.createElement("div");
+        numCardsDiv.id = "numCards" + i;
+        
+        var numCardsText = document.createTextNode("6");
+        numCardsDiv.appendChild(numCardsText);
+        
+        cardHouse.appendChild(numCardsDiv);
+        
+        //add housing to board
         board.appendChild(cardHouse);
     }
     
