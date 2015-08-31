@@ -1,4 +1,5 @@
 .bluecard {
+    position: absolute;
     background-color: blue;
 }
 
@@ -15,11 +16,13 @@
 }
 
 .house {
-    margin-top: 100px;
     margin-left: 20%;
 }
 
 .board {
+    position: absolute;
+    width: 70%;
+    height: 50%;
     margin-top: 20%;
     margin-bottom: 30%;
     margin-left: 10%;
