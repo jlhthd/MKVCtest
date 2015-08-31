@@ -1,6 +1,17 @@
-.card {
-    position: absolute;
-    background-color: grey;
+.bluecard {
+    background-color: blue;
+}
+
+.greencard {
+    background-color: green;
+}
+
+.redcard {
+    background-color: red;
+}
+
+.purplecard {
+    background-color: purple;
 }
 
 .house {
