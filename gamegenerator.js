@@ -7,10 +7,13 @@ function createCards() {
     
     var i = 0;
     for (i = 0; i < 6; i++) {
+        var cardHouse = document.createElement("div");
+        cardHouse.className = "cardhouse";
+        var cardOffset = i * 16.5;
+        cardHouse.style.left = cardOffset + "%";
+        
         var card = document.createElement("card-el");
         card.className = "bluecard";
-        var cardOffset = i * 16.5;
-        card.style.left = cardOffset + "%";
         
         var cardHeader = document.createElement("h3");
         var cardTitle = document.createTextNode("Card Name");
@@ -23,7 +26,9 @@ function createCards() {
         card.appendChild(cardHeader);
         card.appendChild(cardBody);
         
-        board.appendChild(card);
+        cardHouse.appendChild(card);
+        
+        board.appendChild(cardHouse);
     }
     
     var el = document.getElementById("main");

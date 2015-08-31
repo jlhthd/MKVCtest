@@ -15,8 +15,10 @@
     background-color: purple;
 }
 
-.house {
-    margin-left: 20%;
+.cardhouse {
+    position: absolute;
+    width: 11%;
+    height 33%;
 }
 
 .board {
