@@ -1,31 +1,51 @@
 .bluecard {
-    position: absolute;
+    border: 1px solid black;
+    display: inline-block;
     background-color: blue;
 }
 
 .greencard {
-    position: absolute;
+    border: 1px solid black;
+    display: inline-block;
     background-color: green;
 }
 
 .redcard {
-    position: absolute;
+    border: 1px solid black;
+    display: inline-block;
     background-color: red;
 }
 
 .purplecard {
-    position: absolute;
+    border: 1px solid black;
+    display: inline-block;
     background-color: purple;
 }
 
+.line {
+    border: 1px solid purple;
+    height: 33%;
+}
+
 .cardhouse {
-    position: absolute;
-    width: 11%;
-    height 33%;
+    border: 1px solid red;
+    display: inline-block;
+    margin: auto;
+    width: 66%;
+    min-width: 30px;
+    height 66%;
+}
+
+.cardsleeve {
+    border: 1px solid blue;
+    display: inline-block;
+    width: 16%;
+    margin: 0;
 }
 
 .board {
-    position: absolute;
+    border: 1px solid green;
+    display: inline-block;
     width: 70%;
     height: 50%;
     margin-top: 20%;
