@@ -1,34 +1,37 @@
 .bluecard {
-    border: 1px solid black;
+    border: 2px solid black;
+    padding: 2px;
     display: inline-block;
-    background-color: blue;
+    background-color: lightsteelblue;
 }
 
 .greencard {
-    border: 1px solid black;
+    border: 2px solid black;
     display: inline-block;
-    background-color: green;
+    background-color: darkseagreen;
 }
 
 .redcard {
-    border: 1px solid black;
+    border: 2px solid black;
+    padding: 2px;
     display: inline-block;
-    background-color: red;
+    background-color: indianred;
 }
 
 .purplecard {
-    border: 1px solid black;
+    border: 2px solid black;
+    padding: 2px;
     display: inline-block;
-    background-color: purple;
+    background-color: mediumpurple;
 }
 
 .line {
-    border: 1px solid purple;
+/*    border: 1px solid purple;*/
     height: 33%;
 }
 
 .cardhouse {
-    border: 1px solid red;
+/*    border: 1px solid red;*/
     display: inline-block;
     margin: auto;
     width: 66%;
@@ -37,14 +40,15 @@
 }
 
 .cardsleeve {
-    border: 1px solid blue;
+/*    border: 1px solid blue;*/
     display: inline-block;
-    width: 16%;
+    width: 19%;
     margin: 0;
+    text-align: center;
 }
 
 .board {
-    border: 1px solid green;
+/*    border: 1px solid green;*/
     display: inline-block;
     width: 70%;
     height: 50%;
