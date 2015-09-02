@@ -7,21 +7,21 @@ var cardColor = {
 
 var Card = document.registerElement('card-el');
 var masterCardList = [
-    [Field, cardColor.BLUE, [1], 1, false, []],
-    [Ranch, cardColor.BLUE, [2], 1, false, []],
-    [XXX, cardColor.GREEN, [2,3], 1, false, []],
-    [Coffeehouse, cardColor.RED, [3], 1, false, []],
-    [XXX, cardColor.GREEN, [4], 3, false, []],
-    [XXX, cardColor.BLUE, [5], 1, false, []],
-    [XXX, cardColor.PURPLE, [6], 5, false, []],
-    [XXX, cardColor.PURPLE, [6], 2, false, []],
-    [XXX, cardColor.PURPLE, [6], 0, false, []],
-    [XXX, cardColor.GREEN, [7], 2, true, [1]],
-    [XXX, cardColor.GREEN, [8], 3, true, [5]],
-    [XXX, cardColor.BLUE, [9], 2, false, []],
-    [XXX, cardColor.RED, [9,10], 1, false, []],
-    [XXX, cardColor.BLUE, [10], 2, false, []],
-    [XXX, cardColor.GREEN, [10,11], 2, true, [0]]
+    {name: "Field", color: cardColor.BLUE, rolls: [1], multiplier: 1, dependence: false, dependencies: []},
+    {name: "Field", color: cardColor.BLUE, rolls: [2], multiplier: 1, dependence: false, dependencies: []},
+    {name: "Field", color: cardColor.GREEN, rolls: [2,3], multiplier: 1, dependence: false, dependencies: []},
+    {name: "Field", color: cardColor.RED, rolls: [1], multiplier: 1, dependence: false, dependencies: []},
+    {name: "Field", color: cardColor.GREEN, rolls: [1], multiplier: 1, dependence: false, dependencies: []},
+    {name: "Field", color: cardColor.BLUE, rolls: [1], multiplier: 1, dependence: false, dependencies: []},
+    {name: "Field", color: cardColor.PURPLE, rolls: [1], multiplier: 1, dependence: false, dependencies: []},
+    {name: "Field", color: cardColor.PURPLE, rolls: [1], multiplier: 1, dependence: false, dependencies: []},
+    {name: "Field", color: cardColor.PURPLE, rolls: [1], multiplier: 1, dependence: false, dependencies: []},
+    {name: "Field", color: cardColor.GREEN, rolls: [1], multiplier: 1, dependence: false, dependencies: []},
+    {name: "Field", color: cardColor.GREEN, rolls: [1], multiplier: 1, dependence: false, dependencies: []},
+    {name: "Field", color: cardColor.BLUE, rolls: [1], multiplier: 1, dependence: false, dependencies: []},
+    {name: "Field", color: cardColor.RED, rolls: [1], multiplier: 1, dependence: false, dependencies: []},
+    {name: "Field", color: cardColor.BLUE, rolls: [1], multiplier: 1, dependence: false, dependencies: []},
+    {name: "Field", color: cardColor.GREEN, rolls: [1], multiplier: 1, dependence: false, dependencies: []}
 ];
 
 function createCards() {
@@ -34,7 +34,7 @@ function createCards() {
 //    line.className = "line";
     
     var i = 0;
-    for (i = 0; i < 6; i++) {
+    for (i = 0; i < masterCardList.length; i++) {
         //create card sleeve
         var cardSleeve = document.createElement("div");
         cardSleeve.className = "cardsleeve";
