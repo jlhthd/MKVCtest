@@ -37,6 +37,7 @@
     width: 66%;
     min-width: 30px;
     height 66%;
+    padding: 2px;
 }
 
 .cardsleeve {
@@ -47,13 +48,25 @@
     text-align: center;
 }
 
-.board {
-/*    border: 1px solid green;*/
-    display: inline-block;
+.playarea {
+    border: 1px solid green;
     width: 70%;
-    height: 50%;
-    margin-top: 20%;
-    margin-bottom: 30%;
     margin-left: 10%;
     margin-right: 20%;
+}
+
+.opponentsarea {
+/*    border: 1px solid blue;*/
+    height: 20%;
+}
+
+.opponent {
+    border: 1px solid teal;
+    display: inline-block;
+    width: 33%;
+}
+
+.board {
+/*    border: 1px solid green;*/
+    height: 50%;
 }

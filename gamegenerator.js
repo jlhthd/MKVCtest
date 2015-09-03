@@ -7,33 +7,43 @@ var cardColor = {
 
 var Card = document.registerElement('card-el');
 var masterCardList = [
-    {name: "Field", text: "", color: cardColor.BLUE, rolls: [1], multiplier: 1, dependence: false, dependencies: []},
-    {name: "Field", text: "", color: cardColor.BLUE, rolls: [2], multiplier: 1, dependence: false, dependencies: []},
-    {name: "Field", text: "", color: cardColor.GREEN, rolls: [2,3], multiplier: 1, dependence: false, dependencies: []},
-    {name: "Field", text: "", color: cardColor.RED, rolls: [1], multiplier: 1, dependence: false, dependencies: []},
-    {name: "Field", text: "", color: cardColor.GREEN, rolls: [1], multiplier: 1, dependence: false, dependencies: []},
-    {name: "Field", text: "", color: cardColor.BLUE, rolls: [1], multiplier: 1, dependence: false, dependencies: []},
-    {name: "Field", text: "", color: cardColor.PURPLE, rolls: [1], multiplier: 1, dependence: false, dependencies: []},
-    {name: "Field", text: "", color: cardColor.PURPLE, rolls: [1], multiplier: 1, dependence: false, dependencies: []},
-    {name: "Field", text: "", color: cardColor.PURPLE, rolls: [1], multiplier: 1, dependence: false, dependencies: []},
-    {name: "Field", text: "", color: cardColor.GREEN, rolls: [1], multiplier: 1, dependence: false, dependencies: []},
-    {name: "Field", text: "", color: cardColor.GREEN, rolls: [1], multiplier: 1, dependence: false, dependencies: []},
-    {name: "Field", text: "", color: cardColor.BLUE, rolls: [1], multiplier: 1, dependence: false, dependencies: []},
-    {name: "Field", text: "", color: cardColor.RED, rolls: [1], multiplier: 1, dependence: false, dependencies: []},
-    {name: "Field", text: "", color: cardColor.BLUE, rolls: [1], multiplier: 1, dependence: false, dependencies: []},
-    {name: "Field", text: "", color: cardColor.GREEN, rolls: [1], multiplier: 1, dependence: false, dependencies: []}
+    {name: "Field", text: "", color: cardColor.BLUE, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6},
+    {name: "Field", text: "", color: cardColor.BLUE, rolls: [2], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6},
+    {name: "Field", text: "", color: cardColor.GREEN, rolls: [2,3], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6},
+    {name: "Field", text: "", color: cardColor.RED, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6},
+    {name: "Field", text: "", color: cardColor.GREEN, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6},
+    {name: "Field", text: "", color: cardColor.BLUE, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6},
+    {name: "Field", text: "", color: cardColor.PURPLE, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 4},
+    {name: "Field", text: "", color: cardColor.PURPLE, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 4},
+    {name: "Field", text: "", color: cardColor.PURPLE, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 4},
+    {name: "Field", text: "", color: cardColor.GREEN, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6},
+    {name: "Field", text: "", color: cardColor.GREEN, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6},
+    {name: "Field", text: "", color: cardColor.BLUE, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6},
+    {name: "Field", text: "", color: cardColor.RED, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6},
+    {name: "Field", text: "", color: cardColor.BLUE, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6},
+    {name: "Field", text: "", color: cardColor.GREEN, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6}
 ];
 
 function createCards() {
     "use strict";
-    var board = document.createElement("div");
-    board.className = "board";
+    var playarea = document.createElement("div");
+    playarea.className = "playarea";
     
-    //create line
-//    var line = document.createElement("div");
-//    line.className = "line";
+    var opponents = document.createElement("div");
+    opponents.className = "opponentsarea";
+    playarea.appendChild(opponents);
     
     var i = 0;
+    for (i = 0; i < 3; i++) {
+        var opp = document.createElement("div");
+        opp.className = "opponent";
+        opponents.appendChild(opp);
+    }
+    
+    var board = document.createElement("div");
+    board.className = "board";
+    playarea.appendChild(board);
+    
     for (i = 0; i < masterCardList.length; i++) {
         //create card sleeve
         var cardSleeve = document.createElement("div");
@@ -80,7 +90,7 @@ function createCards() {
         var numCardsDiv = document.createElement("div");
         numCardsDiv.id = "numCards" + i;
         
-        var numCardsText = document.createTextNode("6");
+        var numCardsText = document.createTextNode(masterCardList[i].startingNumCards);
         numCardsDiv.appendChild(numCardsText);
         
         cardHouse.appendChild(numCardsDiv);
@@ -93,5 +103,5 @@ function createCards() {
 //    board.appendChild(line);
     
     var el = document.getElementById("main");
-    el.appendChild(board);
+    el.appendChild(playarea);
 }
