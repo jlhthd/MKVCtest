@@ -7,31 +7,28 @@ var cardColor = {
 
 var Card = document.registerElement('card-el');
 var masterCardList = [
-    {name: "Field", text: "", color: cardColor.BLUE, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6},
-    {name: "Field", text: "", color: cardColor.BLUE, rolls: [2], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6},
-    {name: "Field", text: "", color: cardColor.GREEN, rolls: [2,3], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6},
-    {name: "Field", text: "", color: cardColor.RED, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6},
-    {name: "Field", text: "", color: cardColor.GREEN, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6},
-    {name: "Field", text: "", color: cardColor.BLUE, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6},
-    {name: "Field", text: "", color: cardColor.PURPLE, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 4},
-    {name: "Field", text: "", color: cardColor.PURPLE, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 4},
-    {name: "Field", text: "", color: cardColor.PURPLE, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 4},
-    {name: "Field", text: "", color: cardColor.GREEN, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6},
-    {name: "Field", text: "", color: cardColor.GREEN, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6},
-    {name: "Field", text: "", color: cardColor.BLUE, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6},
-    {name: "Field", text: "", color: cardColor.RED, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6},
-    {name: "Field", text: "", color: cardColor.BLUE, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6},
-    {name: "Field", text: "", color: cardColor.GREEN, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6}
+    {name: "Field", text: "", color: cardColor.BLUE, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1},
+    {name: "Field", text: "", color: cardColor.BLUE, rolls: [2], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1},
+    {name: "Field", text: "", color: cardColor.GREEN, rolls: [2,3], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1},
+    {name: "Field", text: "", color: cardColor.RED, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1},
+    {name: "Field", text: "", color: cardColor.GREEN, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1},
+    {name: "Field", text: "", color: cardColor.BLUE, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1},
+    {name: "Field", text: "", color: cardColor.PURPLE, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 4, cost: 1},
+    {name: "Field", text: "", color: cardColor.PURPLE, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 4, cost: 1},
+    {name: "Field", text: "", color: cardColor.PURPLE, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 4, cost: 1},
+    {name: "Field", text: "", color: cardColor.GREEN, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1},
+    {name: "Field", text: "", color: cardColor.GREEN, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1},
+    {name: "Field", text: "", color: cardColor.BLUE, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1},
+    {name: "Field", text: "", color: cardColor.RED, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1},
+    {name: "Field", text: "", color: cardColor.BLUE, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1},
+    {name: "Field", text: "", color: cardColor.GREEN, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1}
 ];
 
 function createCards() {
     "use strict";
-    var playarea = document.createElement("div");
-    playarea.className = "playarea";
+    var playArea = document.getElementById("playarea");
     
-    var opponents = document.createElement("div");
-    opponents.className = "opponentsarea";
-    playarea.appendChild(opponents);
+    var opponents = document.getElementById("opponentsarea");
     
     var i = 0;
     for (i = 0; i < 3; i++) {
@@ -40,9 +37,7 @@ function createCards() {
         opponents.appendChild(opp);
     }
     
-    var board = document.createElement("div");
-    board.className = "board";
-    playarea.appendChild(board);
+    var board = document.getElementById("board");
     
     for (i = 0; i < masterCardList.length; i++) {
         //create card sleeve
@@ -100,8 +95,7 @@ function createCards() {
         board.appendChild(cardSleeve);
     }
     
-//    board.appendChild(line);
-    
-    var el = document.getElementById("main");
-    el.appendChild(playarea);
+//    var playerArea = document.createElement("div");
+//    playerArea.className = "playerarea";
+//    playArea.appendChild(playerArea);
 }

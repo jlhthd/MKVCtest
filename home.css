@@ -25,11 +25,6 @@
     background-color: mediumpurple;
 }
 
-.line {
-/*    border: 1px solid purple;*/
-    height: 33%;
-}
-
 .cardhouse {
 /*    border: 1px solid red;*/
     display: inline-block;
@@ -48,14 +43,30 @@
     text-align: center;
 }
 
-.playarea {
-    border: 1px solid green;
-    width: 70%;
+#wrapper {
     margin-left: 10%;
-    margin-right: 20%;
+    margin-right: 10%;
 }
 
-.opponentsarea {
+.group::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#playarea {
+    border: 1px solid green;
+    width: 70%;
+    float: left;
+}
+
+#logarea {
+    border: 1px solid beige;
+    width: 25%;
+    float: left;
+}
+
+#opponentsarea {
 /*    border: 1px solid blue;*/
     height: 20%;
 }
@@ -66,7 +77,12 @@
     width: 33%;
 }
 
-.board {
+#playerarea {
+    border: 1px solid fuchsia;
+    height: 30%;
+}
+
+#board {
 /*    border: 1px solid green;*/
     height: 50%;
 }
