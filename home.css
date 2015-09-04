@@ -61,9 +61,17 @@
 }
 
 #logarea {
-    border: 1px solid beige;
-    width: 25%;
+    border: 1px solid lightgrey;
+    width: 20%;
     float: left;
+    padding: 2px;
+    /*need to fix height*/
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.logpost {
+    border-bottom: 1px solid lightgrey;
 }
 
 #opponentsarea {

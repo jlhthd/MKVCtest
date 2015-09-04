@@ -99,3 +99,18 @@ function createCards() {
 //    playerArea.className = "playerarea";
 //    playArea.appendChild(playerArea);
 }
+
+function tempFillLog() {
+    "use strict";
+    var el = document.getElementById("logarea");
+    
+    var i = 0;
+    for (i = 0; i < 50; i++) {
+        var post = document.createElement("p");
+        post.className = "logpost";
+        var postText = document.createTextNode("Blah blah blah blah blah blah blah blah blah blah: " + i);
+        
+        post.appendChild(postText);
+        el.appendChild(post);
+    }
+}
