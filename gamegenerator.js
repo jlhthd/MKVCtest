@@ -10,18 +10,18 @@ var masterCardList = [
     {name: "Field", text: "", color: cardColor.BLUE, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1},
     {name: "Field", text: "", color: cardColor.BLUE, rolls: [2], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1},
     {name: "Field", text: "", color: cardColor.GREEN, rolls: [2,3], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1},
-    {name: "Field", text: "", color: cardColor.RED, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 2},
-    {name: "Field", text: "", color: cardColor.GREEN, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 3},
-    {name: "Field", text: "", color: cardColor.BLUE, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 3},
-    {name: "Field", text: "", color: cardColor.PURPLE, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 4, cost: 6},
-    {name: "Field", text: "", color: cardColor.PURPLE, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 4, cost: 7},
-    {name: "Field", text: "", color: cardColor.PURPLE, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 4, cost: 8},
-    {name: "Field", text: "", color: cardColor.GREEN, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1},
-    {name: "Field", text: "", color: cardColor.GREEN, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1},
-    {name: "Field", text: "", color: cardColor.BLUE, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1},
-    {name: "Field", text: "", color: cardColor.RED, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1},
-    {name: "Field", text: "", color: cardColor.BLUE, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1},
-    {name: "Field", text: "", color: cardColor.GREEN, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1}
+    {name: "Field", text: "", color: cardColor.RED, rolls: [3], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 2},
+    {name: "Field", text: "", color: cardColor.GREEN, rolls: [4], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 3},
+    {name: "Field", text: "", color: cardColor.BLUE, rolls: [5], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 3},
+    {name: "Field", text: "", color: cardColor.PURPLE, rolls: [6], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 4, cost: 6},
+    {name: "Field", text: "", color: cardColor.PURPLE, rolls: [6], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 4, cost: 7},
+    {name: "Field", text: "", color: cardColor.PURPLE, rolls: [6], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 4, cost: 8},
+    {name: "Field", text: "", color: cardColor.GREEN, rolls: [7], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1},
+    {name: "Field", text: "", color: cardColor.GREEN, rolls: [8], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1},
+    {name: "Field", text: "", color: cardColor.BLUE, rolls: [9], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1},
+    {name: "Field", text: "", color: cardColor.RED, rolls: [9,10], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1},
+    {name: "Field", text: "", color: cardColor.BLUE, rolls: [10], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1},
+    {name: "Field", text: "", color: cardColor.GREEN, rolls: [11,12], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1}
 ];
 
 var tempPlayerList = [
@@ -49,6 +49,22 @@ function createCards() {
         var opp = document.createElement("div");
         opp.className = "opponent";
         opponents.appendChild(opp);
+        
+        //need to get which player the current player is and skip that player number
+        var name = document.createElement("div");
+        var playerNum = i + 2;
+        var nameText = document.createTextNode("Player " + playerNum);
+        
+        name.appendChild(nameText);
+        opp.appendChild(name);
+        
+        //need to get correct players money while skipping user
+        var money = document.createElement("div");
+        var coins = tempGeneral.players[i+1].coins;
+        var moneyText = document.createTextNode("Coins: " + coins);
+        
+        money.appendChild(moneyText);
+        opp.appendChild(money);
     }
     
     var board = document.getElementById("board");
