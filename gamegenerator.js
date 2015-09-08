@@ -24,12 +24,26 @@ var masterCardList = [
     {name: "Field", text: "", color: cardColor.GREEN, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1}
 ];
 
+var tempPlayerList = [
+    {cards: [1,0,1,0,0,0,0,0,0,0,0,0,0,0,0], victoryCards: [false, false, false, false], coins: 3, current: true, hasPurchased: false},
+    {cards: [1,0,1,0,0,0,0,0,0,0,0,0,0,0,0], victoryCards: [false, false, false, false], coins: 3, current: false, hasPurchased: false},
+    {cards: [1,0,1,0,0,0,0,0,0,0,0,0,0,0,0], victoryCards: [false, false, false, false], coins: 3, current: false, hasPurchased: false},
+    {cards: [1,0,1,0,0,0,0,0,0,0,0,0,0,0,0], victoryCards: [false, false, false, false], coins: 3, current: false, hasPurchased: false}
+];
+
+var tempGeneral = {
+    currentPlayer: 0,
+    cardsRemaining: [6,6,6,6,6,6,4,4,4,6,6,6,6,6,6],
+    players: tempPlayerList
+};
+
 function createCards() {
     "use strict";
     var playArea = document.getElementById("playarea");
     
     var opponents = document.getElementById("opponentsarea");
     
+    //create opponent UI
     var i = 0;
     for (i = 0; i < 3; i++) {
         var opp = document.createElement("div");
@@ -39,6 +53,7 @@ function createCards() {
     
     var board = document.getElementById("board");
     
+    //create card UI
     for (i = 0; i < masterCardList.length; i++) {
         //create card sleeve
         var cardSleeve = document.createElement("div");
@@ -100,6 +115,8 @@ function createCards() {
         cardSleeve.appendChild(cardHouse);
         board.appendChild(cardSleeve);
     }
+    
+    //create player UI
     
 //    var playerArea = document.createElement("div");
 //    playerArea.className = "playerarea";
