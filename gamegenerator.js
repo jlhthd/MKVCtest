@@ -24,6 +24,8 @@ var masterCardList = [
     {name: "Field", text: "", color: cardColor.GREEN, rolls: [11,12], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1}
 ];
 
+var userPlayer = 1;
+
 var tempPlayerList = [
     {cards: [1,0,1,0,0,0,0,0,0,0,0,0,0,0,0], victoryCards: [false, false, false, false], coins: 3, current: true, hasPurchased: false},
     {cards: [1,0,1,0,0,0,0,0,0,0,0,0,0,0,0], victoryCards: [false, false, false, false], coins: 3, current: false, hasPurchased: false},
@@ -45,26 +47,28 @@ function createCards() {
     
     //create opponent UI
     var i = 0;
-    for (i = 0; i < 3; i++) {
-        var opp = document.createElement("div");
-        opp.className = "opponent";
-        opponents.appendChild(opp);
-        
-        //need to get which player the current player is and skip that player number
-        var name = document.createElement("div");
-        var playerNum = i + 2;
-        var nameText = document.createTextNode("Player " + playerNum);
-        
-        name.appendChild(nameText);
-        opp.appendChild(name);
-        
-        //need to get correct players money while skipping user
-        var money = document.createElement("div");
-        var coins = tempGeneral.players[i+1].coins;
-        var moneyText = document.createTextNode("Coins: " + coins);
-        
-        money.appendChild(moneyText);
-        opp.appendChild(money);
+    for (i = 1; i <= 4; i++) {
+        if(userPlayer !== i) {
+            var opp = document.createElement("div");
+            opp.className = "opponent";
+            opponents.appendChild(opp);
+
+            //need to get which player the current player is and skip that player number
+            var name = document.createElement("div");
+            var playerNum = i;
+            var nameText = document.createTextNode("Player " + playerNum);
+
+            name.appendChild(nameText);
+            opp.appendChild(name);
+
+            //need to get correct players money while skipping user
+            var money = document.createElement("div");
+            var coins = tempGeneral.players[i-1].coins;
+            var moneyText = document.createTextNode("Coins: " + coins);
+
+            money.appendChild(moneyText);
+            opp.appendChild(money);
+        }
     }
     
     var board = document.getElementById("board");
