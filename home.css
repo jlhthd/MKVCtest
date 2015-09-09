@@ -1,42 +1,49 @@
+body {
+    background-color: burlywood;
+    margin: 0;
+}
+
 .bluecard {
+    border-radius: 2px;
     border: 2px solid black;
-    padding: 2px;
     display: inline-block;
     background-color: lightsteelblue;
 }
 
 .greencard {
+    border-radius: 2px;
     border: 2px solid black;
     display: inline-block;
     background-color: darkseagreen;
 }
 
 .redcard {
+    border-radius: 2px;
     border: 2px solid black;
-    padding: 2px;
     display: inline-block;
     background-color: indianred;
 }
 
 .purplecard {
+    border-radius: 2px;
     border: 2px solid black;
-    padding: 2px;
     display: inline-block;
     background-color: mediumpurple;
 }
 
 .cardhouse {
-/*    border: 1px solid red;*/
+    border: 1px solid black;
+    border-radius: 2px;
+    background-color: beige;
     display: inline-block;
     margin: auto;
-    width: 66%;
+    width: 50%;
     min-width: 30px;
     height 66%;
-    padding: 2px;
+    padding: 4px;
 }
 
 .cardsleeve {
-/*    border: 1px solid blue;*/
     display: inline-block;
     width: 19%;
     margin: 0;
@@ -46,6 +53,12 @@
 #wrapper {
     margin-left: 10%;
     margin-right: 10%;
+    margin-top: 0;
+    background-color: darkgreen;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 2%;
 }
 
 .group::after {
@@ -55,7 +68,6 @@
 }
 
 #playarea {
-    border: 1px solid green;
     margin-top: 5%;
     width: 70%;
     float: left;
@@ -63,7 +75,8 @@
 
 #logarea {
     border: 1px solid lightgrey;
-    width: 20%;
+    border-radius: 2px;
+    width: 18%;
     float: left;
     padding: 2px;
     overflow-y: auto;
@@ -71,6 +84,7 @@
     position: fixed;
     margin-top: 5%;
     margin-left: 57%;
+    background-color: aliceblue;
 }
 
 .logpost {
@@ -80,22 +94,26 @@
 #opponentsarea {
 /*    border: 1px solid blue;*/
     height: 20%;
+    margin: 2%
 }
 
 .opponent {
+    margin: .05%;
     float: left;
     width: 33%;
     text-align: center;
+    background-color: beige;
 }
 
 #playerarea {
-    border: 1px solid fuchsia;
+    background-color: beige;
     height: 30%;
 }
 
 #board {
 /*    border: 1px solid green;*/
     height: 50%;
+    margin: 2%;
 }
 
 .opponent:hover + .opponentinfo {
@@ -105,4 +123,15 @@
 .opponentinfo {
     display: none;
     position: absolute;
+    background-color: beige;
+    border: 3px solid black;
+    border-radius: 4px;
+    top: 32%;
+    left: 22%;
+    width: 30%;
+    height: 15%;
+}
+
+button {
+    margin: 2% 5%;
 }
