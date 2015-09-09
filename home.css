@@ -97,3 +97,12 @@
 /*    border: 1px solid green;*/
     height: 50%;
 }
+
+.opponent:hover + .opponentinfo {
+    display: block;
+}
+
+.opponentinfo {
+    display: none;
+    position: absolute;
+}

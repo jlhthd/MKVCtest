@@ -68,6 +68,14 @@ function createCards() {
 
             money.appendChild(moneyText);
             opp.appendChild(money);
+            
+            //create hover div
+            var oppHover = document.createElement("div");
+            oppHover.className = "opponentinfo";
+            var tempOppText = document.createTextNode("Player " + playerNum);
+            
+            oppHover.appendChild(tempOppText);
+            opponents.appendChild(oppHover);
         }
     }
     
@@ -141,10 +149,6 @@ function createCards() {
     
     //victory cards/coins top row
     //list of owned cards bottom row
-    
-//    var playerArea = document.createElement("div");
-//    playerArea.className = "playerarea";
-//    playArea.appendChild(playerArea);
 }
 
 function tempFillLog() {
