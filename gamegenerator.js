@@ -137,6 +137,10 @@ function createCards() {
     }
     
     //create player UI
+    var playerArea = document.getElementById("playerarea");
+    
+    //victory cards/coins top row
+    //list of owned cards bottom row
     
 //    var playerArea = document.createElement("div");
 //    playerArea.className = "playerarea";

@@ -74,15 +74,21 @@
     border-bottom: 1px solid lightgrey;
 }
 
+.group::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
 #opponentsarea {
 /*    border: 1px solid blue;*/
     height: 20%;
 }
 
 .opponent {
-    border: 1px solid teal;
-    display: inline-block;
+    float: left;
     width: 33%;
+    text-align: center;
 }
 
 #playerarea {
