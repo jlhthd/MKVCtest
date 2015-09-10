@@ -5,23 +5,41 @@ var cardColor = {
     PURPLE: 3
 };
 
+var cardType = {
+    TOWER: 0,
+    WHEAT: 1,
+    COW: 2,
+    BREAD: 3,
+    COFFEE: 4,
+    GEAR: 5,
+    FACTORY: 6,
+    FRUIT: 7
+};
+
 var Card = document.registerElement('card-el');
 var masterCardList = [
-    {name: "Field", text: "", color: cardColor.BLUE, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1},
-    {name: "Field", text: "", color: cardColor.BLUE, rolls: [2], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1},
-    {name: "Field", text: "", color: cardColor.GREEN, rolls: [2,3], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1},
-    {name: "Field", text: "", color: cardColor.RED, rolls: [3], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 2},
-    {name: "Field", text: "", color: cardColor.GREEN, rolls: [4], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 3},
-    {name: "Field", text: "", color: cardColor.BLUE, rolls: [5], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 3},
-    {name: "Field", text: "", color: cardColor.PURPLE, rolls: [6], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 4, cost: 6},
-    {name: "Field", text: "", color: cardColor.PURPLE, rolls: [6], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 4, cost: 7},
-    {name: "Field", text: "", color: cardColor.PURPLE, rolls: [6], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 4, cost: 8},
-    {name: "Field", text: "", color: cardColor.GREEN, rolls: [7], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1},
-    {name: "Field", text: "", color: cardColor.GREEN, rolls: [8], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1},
-    {name: "Field", text: "", color: cardColor.BLUE, rolls: [9], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1},
-    {name: "Field", text: "", color: cardColor.RED, rolls: [9,10], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1},
-    {name: "Field", text: "", color: cardColor.BLUE, rolls: [10], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1},
-    {name: "Field", text: "", color: cardColor.GREEN, rolls: [11,12], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1}
+    {name: "Field", text: "Get 1 coind from the bank, on anyone's turn.", color: cardColor.BLUE, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1, type: cardType.WHEAT},
+    {name: "Ranch", text: "Get 1 coin from the bank, on anyone's turn.", color: cardColor.BLUE, rolls: [2], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1, type: cardType.COW},
+    {name: "Bakery", text: "Get 1 coin from the bank, on your turn only.", color: cardColor.GREEN, rolls: [2,3], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1, type: cardType.BREAD},
+    {name: "Cafe", text: "Get 1 coin from the player who rolled the dice.", color: cardColor.RED, rolls: [3], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 2, type: cardType.COFFEE},
+    {name: "Convenience Store", text: "Get 3 coins from the bank, on your turn only.", color: cardColor.GREEN, rolls: [4], multiplier: 3, dependence: false, dependencies: [], startingNumCards: 6, cost: 3, type: cardType.BREAD},
+    {name: "Forest", text: "Get 1 coin from the bank, on anyone's turn.", color: cardColor.BLUE, rolls: [5], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 3, type: cardType.GEAR},
+    {name: "Stadium", text: "Get 2 coins from all players, on your turn only.", color: cardColor.PURPLE, rolls: [6], multiplier: 2, dependence: false, dependencies: [], startingNumCards: 4, cost: 6, type: cardType.TOWER},
+    {name: "Tv Station", text: "Take 5 coins from any one player, on your turn only.", color: cardColor.PURPLE, rolls: [6], multiplier: 5, dependence: false, dependencies: [], startingNumCards: 4, cost: 7, type: cardType.TOWER},
+    {name: "Business Center", text: "Trade one non-TOWER establishment with another player, on your turn only.", color: cardColor.PURPLE, rolls: [6], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 4, cost: 8, type: cardType.TOWER},
+    {name: "Cheese Factory", text: "Get 3 coins from the bank for each COW establishment that you own, on your turn only.", color: cardColor.GREEN, rolls: [7], multiplier: 3, dependence: true, dependencies: [1], startingNumCards: 6, cost: 5, type: cardType.FACTORY},
+    {name: "Furniture Factory", text: "Get 3 coins from the bank for each GEAR establishment that you own, on your turn only.", color: cardColor.GREEN, rolls: [8], multiplier: 3, dependence: true, dependencies: [5,12], startingNumCards: 6, cost: 3, type: cardType.FACTORY},
+    {name: "Mine", text: "Get 5 coins from the bank, on anyone's turn.", color: cardColor.BLUE, rolls: [9], multiplier: 5, dependence: false, dependencies: [], startingNumCards: 6, cost: 6, type: cardType.GEAR},
+    {name: "Family Restaurant", text: "Get 2 coins from the player who rolled the dice.", color: cardColor.RED, rolls: [9,10], multiplier: 2, dependence: false, dependencies: [], startingNumCards: 6, cost: 3, type: cardType.COFFEE},
+    {name: "Apple Orchard", text: "Get 3 coins from the bank, on anyone's turn.", color: cardColor.BLUE, rolls: [10], multiplier: 3, dependence: false, dependencies: [], startingNumCards: 6, cost: 3, type: cardType.WHEAT},
+    {name: "Fruit and Vegetable Market", text: "Get 2 coins from the bank for each WHEAT establishment that you own, on your turn only.", color: cardColor.GREEN, rolls: [11,12], multiplier: 2, dependence: true, dependencies: [0,14], startingNumCards: 6, cost: 2, type: cardType.FRUIT}
+];
+
+var masterVictoryList = [
+    {name: "Train Station", text: "You may roll 1 or 2 dice.", cost: 4},
+    {name: "Shopping Mall", text: "Each of your COFFEE or BREAD buildings earn +1 coin.", cost: 10, type: cardType.TOWER},
+    {name: "Amusement Park", text: "If you roll doubles, take another turn after this one.", cost: 16, type: cardType.TOWER},
+    {name: "Radio Tower", text: "Once every turn, you can choose to reroll your dice.", cost: 22, type: cardType.TOWER}
 ];
 
 var userPlayer = 1;
@@ -72,9 +90,24 @@ function createCards() {
             //create hover div
             var oppHover = document.createElement("div");
             oppHover.className = "opponentinfo";
-            var tempOppText = document.createTextNode("Player " + playerNum);
             
-            oppHover.appendChild(tempOppText);
+            var oppHoverTitle = document.createElement("div");
+            oppHoverTitle.className = "opponentinfotitle";
+            
+            var tempOppText = document.createTextNode("Player " + playerNum);
+            oppHoverTitle.appendChild(tempOppText);
+            
+            var oppHoverCards = document.createElement("div");
+            oppHoverCards.className = "opponentinfocards";
+            
+            var j = 0;
+            for (j = 0; j < masterCardList.length; j++) {
+                var tempText = document.createTextNode(masterCardList[j].name + " " + tempGeneral.players[i-1].cards[j]);
+                oppHoverCards.appendChild(tempText);
+            }
+            
+            oppHover.appendChild(oppHoverTitle);
+            oppHover.appendChild(oppHoverCards);
             opponents.appendChild(oppHover);
         }
     }
@@ -114,8 +147,8 @@ function createCards() {
         var cardTitle = document.createTextNode(masterCardList[i].rolls + " " + masterCardList[i].name);
         cardHeader.appendChild(cardTitle);
         
-        var cardBody = document.createElement("p");
-        var cardText = document.createTextNode("Card Text");
+        var cardBody = document.createElement("div");
+        var cardText = document.createTextNode(masterCardList[i].text);
         cardBody.appendChild(cardText);
         
         card.appendChild(cardHeader);

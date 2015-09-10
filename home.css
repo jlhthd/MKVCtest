@@ -3,31 +3,26 @@ body {
     margin: 0;
 }
 
-.bluecard {
+card-el {
     border-radius: 2px;
     border: 2px solid black;
     display: inline-block;
+    padding: 2px;
+}
+
+.bluecard {
     background-color: lightsteelblue;
 }
 
 .greencard {
-    border-radius: 2px;
-    border: 2px solid black;
-    display: inline-block;
     background-color: darkseagreen;
 }
 
 .redcard {
-    border-radius: 2px;
-    border: 2px solid black;
-    display: inline-block;
     background-color: indianred;
 }
 
 .purplecard {
-    border-radius: 2px;
-    border: 2px solid black;
-    display: inline-block;
     background-color: mediumpurple;
 }
 
@@ -37,8 +32,8 @@ body {
     background-color: beige;
     display: inline-block;
     margin: auto;
-    width: 50%;
-    min-width: 30px;
+    width: 80%;
+    min-width: 120px;
     height 66%;
     padding: 4px;
 }
@@ -46,6 +41,7 @@ body {
 .cardsleeve {
     display: inline-block;
     width: 19%;
+    min-width: 130px;
     margin: 0;
     text-align: center;
 }
@@ -58,7 +54,7 @@ body {
     height: 100%;
     border: 1px solid black;
     border-radius: 10px;
-    padding: 2%;
+    padding: 0% 2%;
 }
 
 .group::after {
@@ -68,7 +64,6 @@ body {
 }
 
 #playarea {
-    margin-top: 5%;
     width: 70%;
     float: left;
 }
@@ -130,6 +125,15 @@ body {
     left: 22%;
     width: 30%;
     height: 15%;
+    text-align: center;
+}
+
+.opponentinfotitle {
+    
+}
+
+.opponentinfocards {
+    
 }
 
 button {
