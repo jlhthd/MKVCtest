@@ -17,6 +17,8 @@ var cardType = {
 };
 
 var Card = document.registerElement('card-el');
+var MiniCard = document.registerElement('mini-card');
+var MiniCardSleeve = document.registerElement('mini-cardsleeve');
 var masterCardList = [
     {name: "Field", text: "Get 1 coind from the bank, on anyone's turn.", color: cardColor.BLUE, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1, type: cardType.WHEAT},
     {name: "Ranch", text: "Get 1 coin from the bank, on anyone's turn.", color: cardColor.BLUE, rolls: [2], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1, type: cardType.COW},
@@ -58,6 +60,15 @@ var tempGeneral = {
     log: []
 };
 
+var buttonList = [];
+var availableCardText = [];
+var playerText = [
+    {coins: null, ownedCards: []},
+    {coins: null, ownedCards: []},
+    {coins: null, ownedCards: []},
+    {coins: null, ownedCards: []}
+];
+
 function createCards() {
     "use strict";
     var playArea = document.getElementById("playarea");
@@ -72,7 +83,6 @@ function createCards() {
             opp.className = "opponent";
             opponents.appendChild(opp);
 
-            //need to get which player the current player is and skip that player number
             var name = document.createElement("div");
             var playerNum = i;
             var nameText = document.createTextNode("Player " + playerNum);
@@ -80,12 +90,12 @@ function createCards() {
             name.appendChild(nameText);
             opp.appendChild(name);
 
-            //need to get correct players money while skipping user
             var money = document.createElement("div");
             var coins = tempGeneral.players[i - 1].coins;
             var moneyText = document.createTextNode("Coins: " + coins);
 
             money.appendChild(moneyText);
+            playerText[i - 1].coins = moneyText;
             opp.appendChild(money);
             
             //create hover div
@@ -103,8 +113,39 @@ function createCards() {
             
             var j = 0;
             for (j = 0; j < masterCardList.length; j++) {
-                var tempText = document.createTextNode(masterCardList[j].name + " " + tempGeneral.players[i - 1].cards[j]);
-                oppHoverCards.appendChild(tempText);
+                var miniSleeve = document.createElement("mini-cardsleeve");
+                
+                var miniCard = document.createElement("mini-card");
+                var miniCardNameSpan = document.createElement("span");
+                miniCardNameSpan.className = "minicardnamespan";
+                var miniCardName = document.createTextNode(masterCardList[j].name);
+                miniCardNameSpan.appendChild(miniCardName);
+                miniCard.appendChild(miniCardNameSpan);
+                
+                //set card color
+                switch(masterCardList[j].color) {
+                    case cardColor.BLUE:
+                        miniCard.className = "bluecard";
+                        break;
+                    case cardColor.GREEN:
+                        miniCard.className = "greencard";
+                        break;
+                    case cardColor.RED:
+                        miniCard.className = "redcard";
+                        break;
+                    case cardColor.PURPLE:
+                        miniCard.className = "purplecard";
+                        break;
+                    default:
+                        miniCard.className = "bluecard";
+                }
+                
+                var miniCardNum = document.createTextNode(tempGeneral.players[i - 1].cards[j]);
+                miniSleeve.appendChild(miniCard);
+                miniSleeve.appendChild(miniCardNum);
+                playerText[i - 1].ownedCards.push(miniCardNum);
+                
+                oppHoverCards.appendChild(miniSleeve);
             }
             
             oppHover.appendChild(oppHoverTitle);
@@ -169,7 +210,9 @@ function createCards() {
         
         var numCardsText = document.createTextNode(masterCardList[i].startingNumCards);
         numCardsDiv.appendChild(numCardsText);
+        availableCardText.push(numCardsText);
         numCardsDiv.appendChild(buyButton);
+        buttonList.push(buyButton);
         
         cardHouse.appendChild(numCardsDiv);
         

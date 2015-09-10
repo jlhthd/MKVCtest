@@ -3,7 +3,25 @@ body {
     margin: 0;
 }
 
+mini-cardsleeve {
+    display: inline-block;
+    width: 10%;
+    margin: 5px;
+}
+
+.minicardnamespan {
+    vertical-align: middle;
+}
+
 mini-card {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 100%;
+    height: 70px;
+    text-align: center;
 }
 
 card-el {
@@ -112,8 +130,23 @@ card-el {
     margin: 2%;
 }
 
+/*Opponent hover and animation*/
+@keyframes hoverZoom {
+    0% {
+        width: 0%;
+        height: 0%;
+        height: 0%;
+    }
+    50% {
+        width: 32%;
+        height: 25%;
+    }
+}
+
 .opponent:hover + .opponentinfo {
     display: block;
+    animation: hoverZoom 1s;
+    overflow: hidden;
 }
 
 .opponentinfo {
@@ -121,16 +154,19 @@ card-el {
     position: absolute;
     background-color: beige;
     border: 3px solid black;
-    border-radius: 4px;
+    border-radius: 15px;
     top: 32%;
     left: 22%;
     width: 30%;
     min-height: 15%;
     text-align: center;
+    box-shadow: 0px 0px 20px 10px lightblue;
 }
 
 .opponentinfotitle {
-    
+    padding: 10px;
+    background-color: aliceblue;
+    border-bottom: 1px solid grey;
 }
 
 .opponentinfocards {
