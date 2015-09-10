@@ -20,7 +20,7 @@ var Card = document.registerElement('card-el');
 var masterCardList = [
     {name: "Field", text: "Get 1 coind from the bank, on anyone's turn.", color: cardColor.BLUE, rolls: [1], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1, type: cardType.WHEAT},
     {name: "Ranch", text: "Get 1 coin from the bank, on anyone's turn.", color: cardColor.BLUE, rolls: [2], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1, type: cardType.COW},
-    {name: "Bakery", text: "Get 1 coin from the bank, on your turn only.", color: cardColor.GREEN, rolls: [2,3], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1, type: cardType.BREAD},
+    {name: "Bakery", text: "Get 1 coin from the bank, on your turn only.", color: cardColor.GREEN, rolls: [2, 3], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 1, type: cardType.BREAD},
     {name: "Cafe", text: "Get 1 coin from the player who rolled the dice.", color: cardColor.RED, rolls: [3], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 2, type: cardType.COFFEE},
     {name: "Convenience Store", text: "Get 3 coins from the bank, on your turn only.", color: cardColor.GREEN, rolls: [4], multiplier: 3, dependence: false, dependencies: [], startingNumCards: 6, cost: 3, type: cardType.BREAD},
     {name: "Forest", text: "Get 1 coin from the bank, on anyone's turn.", color: cardColor.BLUE, rolls: [5], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 6, cost: 3, type: cardType.GEAR},
@@ -28,11 +28,11 @@ var masterCardList = [
     {name: "Tv Station", text: "Take 5 coins from any one player, on your turn only.", color: cardColor.PURPLE, rolls: [6], multiplier: 5, dependence: false, dependencies: [], startingNumCards: 4, cost: 7, type: cardType.TOWER},
     {name: "Business Center", text: "Trade one non-TOWER establishment with another player, on your turn only.", color: cardColor.PURPLE, rolls: [6], multiplier: 1, dependence: false, dependencies: [], startingNumCards: 4, cost: 8, type: cardType.TOWER},
     {name: "Cheese Factory", text: "Get 3 coins from the bank for each COW establishment that you own, on your turn only.", color: cardColor.GREEN, rolls: [7], multiplier: 3, dependence: true, dependencies: [1], startingNumCards: 6, cost: 5, type: cardType.FACTORY},
-    {name: "Furniture Factory", text: "Get 3 coins from the bank for each GEAR establishment that you own, on your turn only.", color: cardColor.GREEN, rolls: [8], multiplier: 3, dependence: true, dependencies: [5,12], startingNumCards: 6, cost: 3, type: cardType.FACTORY},
+    {name: "Furniture Factory", text: "Get 3 coins from the bank for each GEAR establishment that you own, on your turn only.", color: cardColor.GREEN, rolls: [8], multiplier: 3, dependence: true, dependencies: [5, 12], startingNumCards: 6, cost: 3, type: cardType.FACTORY},
     {name: "Mine", text: "Get 5 coins from the bank, on anyone's turn.", color: cardColor.BLUE, rolls: [9], multiplier: 5, dependence: false, dependencies: [], startingNumCards: 6, cost: 6, type: cardType.GEAR},
-    {name: "Family Restaurant", text: "Get 2 coins from the player who rolled the dice.", color: cardColor.RED, rolls: [9,10], multiplier: 2, dependence: false, dependencies: [], startingNumCards: 6, cost: 3, type: cardType.COFFEE},
+    {name: "Family Restaurant", text: "Get 2 coins from the player who rolled the dice.", color: cardColor.RED, rolls: [9, 10], multiplier: 2, dependence: false, dependencies: [], startingNumCards: 6, cost: 3, type: cardType.COFFEE},
     {name: "Apple Orchard", text: "Get 3 coins from the bank, on anyone's turn.", color: cardColor.BLUE, rolls: [10], multiplier: 3, dependence: false, dependencies: [], startingNumCards: 6, cost: 3, type: cardType.WHEAT},
-    {name: "Fruit and Vegetable Market", text: "Get 2 coins from the bank for each WHEAT establishment that you own, on your turn only.", color: cardColor.GREEN, rolls: [11,12], multiplier: 2, dependence: true, dependencies: [0,14], startingNumCards: 6, cost: 2, type: cardType.FRUIT}
+    {name: "Fruit and Vegetable Market", text: "Get 2 coins from the bank for each WHEAT establishment that you own, on your turn only.", color: cardColor.GREEN, rolls: [11, 12], multiplier: 2, dependence: true, dependencies: [0, 14], startingNumCards: 6, cost: 2, type: cardType.FRUIT}
 ];
 
 var masterVictoryList = [
@@ -45,16 +45,17 @@ var masterVictoryList = [
 var userPlayer = 1;
 
 var tempPlayerList = [
-    {cards: [1,0,1,0,0,0,0,0,0,0,0,0,0,0,0], victoryCards: [false, false, false, false], coins: 3, current: true, hasPurchased: false},
-    {cards: [1,0,1,0,0,0,0,0,0,0,0,0,0,0,0], victoryCards: [false, false, false, false], coins: 3, current: false, hasPurchased: false},
-    {cards: [1,0,1,0,0,0,0,0,0,0,0,0,0,0,0], victoryCards: [false, false, false, false], coins: 3, current: false, hasPurchased: false},
-    {cards: [1,0,1,0,0,0,0,0,0,0,0,0,0,0,0], victoryCards: [false, false, false, false], coins: 3, current: false, hasPurchased: false}
+    {cards: [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], victoryCards: [false, false, false, false], coins: 3, current: true, hasPurchased: false},
+    {cards: [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], victoryCards: [false, false, false, false], coins: 3, current: false, hasPurchased: false},
+    {cards: [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], victoryCards: [false, false, false, false], coins: 3, current: false, hasPurchased: false},
+    {cards: [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], victoryCards: [false, false, false, false], coins: 3, current: false, hasPurchased: false}
 ];
 
 var tempGeneral = {
     currentPlayer: 0,
-    cardsRemaining: [6,6,6,6,6,6,4,4,4,6,6,6,6,6,6],
-    players: tempPlayerList
+    cardsRemaining: [6, 6, 6, 6, 6, 6, 4, 4, 4, 6, 6, 6, 6, 6, 6],
+    players: tempPlayerList,
+    log: []
 };
 
 function createCards() {
@@ -66,7 +67,7 @@ function createCards() {
     //create opponent UI
     var i = 0;
     for (i = 1; i <= 4; i++) {
-        if(userPlayer !== i) {
+        if (userPlayer !== i) {
             var opp = document.createElement("div");
             opp.className = "opponent";
             opponents.appendChild(opp);
@@ -81,7 +82,7 @@ function createCards() {
 
             //need to get correct players money while skipping user
             var money = document.createElement("div");
-            var coins = tempGeneral.players[i-1].coins;
+            var coins = tempGeneral.players[i - 1].coins;
             var moneyText = document.createTextNode("Coins: " + coins);
 
             money.appendChild(moneyText);
@@ -102,7 +103,7 @@ function createCards() {
             
             var j = 0;
             for (j = 0; j < masterCardList.length; j++) {
-                var tempText = document.createTextNode(masterCardList[j].name + " " + tempGeneral.players[i-1].cards[j]);
+                var tempText = document.createTextNode(masterCardList[j].name + " " + tempGeneral.players[i - 1].cards[j]);
                 oppHoverCards.appendChild(tempText);
             }
             
